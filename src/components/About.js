@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function About({ darkMode, toggleDarkMode }) {
+export default function About({ darkMode }) {
     return (
         <div className={`container my-3 ${darkMode ? "dark-mode" : ""}`}>
             <h1>About us</h1>
@@ -40,21 +40,6 @@ export default function About({ darkMode, toggleDarkMode }) {
                             <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="container my-3">
-                <div className="form-check form-switch my-3">
-                    <input
-                        className="form-check-input"
-                        type="checkbox"
-                        onChange={toggleDarkMode}
-                        role="switch"
-                        id="switchCheckDefault"
-                        checked={darkMode}
-                    />
-            <label className="form-check-label" htmlFor="switchCheckDefault">
-                {darkMode ? "Enable Light Mode" : "Enable Dark Mode"}
-            </label>
                 </div>
             </div>
         </div>

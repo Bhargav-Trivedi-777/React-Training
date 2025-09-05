@@ -1,14 +1,13 @@
 /* Light mode (default) */
 .app.light-mode {
   background-color: white;
-  color: black;
+  color: black !important;
 }
 
 /* Dark mode */
 .app.dark-mode {
   background-color: black;
-  color: white;
-  border: 1px solid white;
+  color: white !important;
 }
 
 /* Ensure navbar and accordion also respect mode */
