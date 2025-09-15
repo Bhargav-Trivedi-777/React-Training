@@ -8,11 +8,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    if (!darkMode) {
-      document.body.style.background = "black";
-    } else {
-      document.body.style.background = "white";
-    }
+    document.body.style.background = darkMode ? "black" : "white" 
     setDarkMode(!darkMode);
   };
 

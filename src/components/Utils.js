@@ -1,4 +1,3 @@
-import { element } from 'prop-types';
 import React, { useState } from 'react'
 
 export default function TextForm(prop) {
@@ -47,15 +46,18 @@ export default function TextForm(prop) {
         setText(newText)
         alert(find + " replaced with " + repalce);
     }
-   
+
     return (
         <>
-            <div className={`container ${ prop.darkMode ? "dark" : "light"}-mode`} >
+            <div className={`container ${prop.darkMode ? "dark" : "light"}-mode`} >
                 <div className='container'>
                     <h1>{prop.heading}</h1>
                     <div className="mb-3">
-                        <textarea className="form-control" id="myBox" onChange={HandleOnChange} value={text} rows="8">
-                        </textarea>
+                        <textarea className="form-control" id="myBox" onChange={HandleOnChange} value={text} rows="8"
+                            style={{
+                                backgroundColor: prop.darkMode ? "#b5888870" : "#8cd2dd44",
+                                color: prop.darkMode ? "white" : "black"
+                            }} />
                     </div>
                     <div className="btn btn-primary mx-1" onClick={HandleUpKey}>Convert to Uppercase</div>
                     <div className="btn btn-primary mx-1 " onClick={HandleLoKey}>Convert to Lowecase</div>
