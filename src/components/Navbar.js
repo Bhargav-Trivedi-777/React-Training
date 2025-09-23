@@ -1,26 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     return (
         <>
             <nav className={`navbar navbar-expand-lg navbar-${props.darkMode ? "dark" : "light"} bg-${props.darkMode ? "dark" : "light"}`}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">{props.siteTitle}</a>
+                    <Link className="navbar-brand" to="/">{props.siteTitle}</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">{props.page1}</a>
+                                <Link className="nav-link active" aria-current="page" to="/">{props.page1}</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">{props.page2}</a>
+                                <Link className="nav-link active" aria-current="page" to="/">{props.page2}</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">{props.page3}</a>
+                                <Link className="nav-link active" aria-current="page" to="/about">{props.page3}</Link>
                             </li>
                         </ul>
+                        <div className='bg-primary rounded me-2' style={{ height: '30px', width: '30px' }}></div>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-primary" type="submit">Search</button>
@@ -30,7 +32,7 @@ export default function Navbar(props) {
                                 <input
                                     className="form-check-input"
                                     type="checkbox"
-                                    onChange={props.toggleDarkMode}
+                                    onChange={props.toggleMode}
                                     role="switch"
                                     id="switchCheckDefault"
                                     checked={props.darkMode}

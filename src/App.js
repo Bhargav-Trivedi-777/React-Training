@@ -4,6 +4,12 @@ import './App.css';
 import About from './components/About.js';
 import Utils from './components/Utils.js';
 import Alert from './components/Alert.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,7 +25,7 @@ function App() {
     }, 3000);
   }
 
-  const toggleDarkMode = () => {
+  const toggleMode = () => {
     if (!darkMode) {
       document.body.style.background = "black";
       showAlert("Dark mode has been Enabled", "success");
@@ -33,17 +39,22 @@ function App() {
 
   return (
     <div className={darkMode ? 'app dark-mode' : 'app light-mode'}>
-      <Navbar
-        siteTitle="DemoTitle"
-        page1="Home"
-        page2="Content"
-        page3="About"
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-      />
-      <Alert alert={alert} />
-      <Utils heading="Enter Text" darkMode={darkMode} toggleDarkMode={toggleDarkMode} showAlert={showAlert} />
-      {/* <About darkMode={darkMode} /> */}
+      <Router>
+        <Navbar
+          siteTitle="DemoTitle"
+          page1="Home"
+          page2="Content"
+          page3="About"
+          darkMode={darkMode}
+          toggleMode={toggleMode}
+        />
+        <Alert alert={alert} />
+        <Routes>
+          {/* add exact in route to match the exact page url */}
+          <Route exact path="/about" element={<About darkMode={darkMode} />} />
+          <Route exact path="/" element={<Utils heading="Enter Text" darkMode={darkMode} toggleMode={toggleMode} showAlert={showAlert} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
