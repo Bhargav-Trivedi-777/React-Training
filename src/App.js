@@ -36,6 +36,33 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  const removeClass = () => {
+    document.querySelector(".app")?.classList.remove('dark-mode')
+    document.querySelector(".app")?.classList.remove('light-mode')
+    document.querySelector(".app")?.classList.remove('bg-primary')
+    document.querySelector(".app")?.classList.remove('bg-danger')
+    document.querySelector(".navbar")?.classList.remove('bg-dark')
+    document.querySelector(".navbar")?.classList.remove('bg-light')
+    document.querySelector(".navbar")?.classList.remove('navbar-light')
+    document.querySelector(".navbar")?.classList.remove('navbar-dark')
+    document.querySelector(".navbar")?.classList.remove('bg-primary')
+    document.querySelector(".navbar")?.classList.remove('bg-danger')
+    document.documentElement.classList.remove('bg-primary')
+    document.documentElement.classList.remove('bg-danger')
+  }
+
+  let makeBlue = (cls) => {
+    removeClass()
+    if(cls === "red"){
+      document.querySelector(".app")?.classList.add('bg-danger')
+      document.querySelector(".navbar")?.classList.add('bg-danger')
+      document.documentElement.classList.add('bg-danger')
+    }else if(cls === "blue")
+    document.querySelector(".app")?.classList.add('bg-primary')
+    document.querySelector(".navbar")?.classList.add('bg-primary')
+    document.documentElement.classList.add('bg-primary')
+  }
+
 
   return (
     <div className={darkMode ? 'app dark-mode' : 'app light-mode'}>
@@ -47,12 +74,21 @@ function App() {
           page3="About"
           darkMode={darkMode}
           toggleMode={toggleMode}
+          color={makeBlue}
         />
         <Alert alert={alert} />
         <Routes>
           {/* add exact in route to match the exact page url */}
-          <Route exact path="/about" element={<About darkMode={darkMode} />} />
-          <Route exact path="/" element={<Utils heading="Enter Text" darkMode={darkMode} toggleMode={toggleMode} showAlert={showAlert} />} />
+          <Route exact path="/about" element={
+            <About darkMode={darkMode} />}
+          />
+          <Route exact path="/" element={
+            <Utils
+              heading="Enter Text"
+              darkMode={darkMode}
+              toggleMode={toggleMode}
+              showAlert={showAlert} />}
+          />
         </Routes>
       </Router>
     </div>

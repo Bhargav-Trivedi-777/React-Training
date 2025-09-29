@@ -22,7 +22,8 @@ export default function Navbar(props) {
                                 <Link className="nav-link active" aria-current="page" to="/about">{props.page3}</Link>
                             </li>
                         </ul>
-                        <div className='bg-primary rounded me-2' style={{ height: '30px', width: '30px' }}></div>
+                        <div className='bg-danger rounded me-2' style={{ height: '30px', width: '30px' }} onClick={()=>{props.color('red')}}></div>
+                        <div className='bg-primary rounded me-2' style={{ height: '30px', width: '30px' }} onClick={()=>{props.color('blue')}}></div>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-primary" type="submit">Search</button>
